@@ -21,9 +21,9 @@ dataset_pretraitement_page = st.Page(
 methode1_page = st.Page("methodes/methode_1.py", title="Méthode 1", icon=puce_icon)
 methode2_page = st.Page("methodes/methode_2.py", title="Méthode 2", icon=puce_icon)
 methode3_page = st.Page("methodes/methode_3.py", title="Méthode 3", icon=puce_icon)
-discussion_page = st.Page("resultats/discussion.py", title="discussion", icon=puce_icon)
+discussion_page = st.Page("resultats/discussion.py", title="Discussion", icon=puce_icon)
 exploitation_page = st.Page(
-    "resultats/exploitation.py", title="exploitation", icon=puce_icon
+    "resultats/exploitation.py", title="Exploitation", icon=puce_icon
 )
 
 st.set_page_config(
