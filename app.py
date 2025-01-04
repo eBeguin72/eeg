@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 puce_icon = ":material/arrow_circle_right:"
 projet_page = st.Page("projet/projet.py", title="Présentation", icon=puce_icon)
@@ -13,7 +14,7 @@ dataset_analyse_page = st.Page(
 
 dataset_pretraitement_page = st.Page(
     "projet/dataset_pretraitement.py",
-    title="Pré-traitement des données",
+    title="Prétraitement des données",
     icon=puce_icon,
 )
 
@@ -26,11 +27,40 @@ exploitation_page = st.Page(
 )
 
 st.set_page_config(
-    page_title="EEG",
+    page_title="EEG-IM",
     page_icon=":material/neurology:",
     layout="wide",
     initial_sidebar_state="auto",
 )
+
+def get_base64_of_bin_file(png_file: str) -> str:
+    with open(png_file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+
+@st.cache_resource
+def build_markup_for_logo(png_file: str) -> str:
+    binary_string = get_base64_of_bin_file(png_file)
+    return f"""
+            <style>
+                [data-testid="stSidebarContent"] {{
+                    padding: 10px;
+                }}
+                [data-testid="stSidebarHeader"] {{
+                    background-image: url("data:image/png;base64,{binary_string}");
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: top center;
+                }}
+            </style>
+            """
+
+
+st.markdown(
+    build_markup_for_logo("assets/brain.jpg"),
+    unsafe_allow_html=True,
+)
+
 
 pg = st.navigation(
     {
