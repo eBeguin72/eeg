@@ -27,7 +27,7 @@ st.markdown(
     """<div style="text-align: justify;">Nous avons appliqué les filtres CSP sur les epochs EEG, projetant les données dans un espace où les différences de variance entre les classes sont maximisées, facilitant l'extraction des composantes discriminantes. Après cela, nous avons calculé la variance de chaque composante filtrée et appliqué le logarithme de cette variance pour normaliser les valeurs et atténuer l'impact des grandes variations, afin d'obtenir des caractéristiques adaptées à la classification des intentions motrices..<br><br>""",
     unsafe_allow_html=True,
 )
-insert_png("app/static/assets/images/EEGCSP2.png", "5%")
+insert_png("app/static/assets/images/EEGCSP3.png", "5%")
 insert_image_title(
     "Signal EEG filtré CSP pour C3, Cz, et C4 avec en bleu event_0 (IM main gauche), et en rouge event_1 (IM main droite)"
 )
